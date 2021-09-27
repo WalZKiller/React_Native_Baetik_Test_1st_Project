@@ -1,6 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, TextInput, Pressable, Alert } from 'react-native';
- 
+import { StyleSheet, Text, View, ScrollView, TextInput, Pressable, Alert, Image } from 'react-native';
+
+//Images
+import HappyIcon from './image/happy-icon.svg';
+import MoneyIcon from './image/money-icon.svg';
+import EmailIcon from './image/email-icon.svg';
+
 const HelloWorldApp = () => (
   
     <>
@@ -43,32 +48,100 @@ const HelloWorldApp = () => (
         </View>
         {/* END EMAIL BAR */}
 
-        {/* TITLE BAR */}
+        {/* PRODUCT PHOTO */}
         <View style={{
           flex: 3,
-          justifyContent: "center",
-          alignItems: "center",
-          padding: 20,
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: 20,
+          marginTop: 40,
         }}>
-          <Text style={styles.descriptionTitle}>Free Cakes</Text>
-          <Text style={styles.descriptionTitle}>Special Discounts</Text>
-          <Text style={styles.descriptionTitle}>New Flavour Updates</Text>
+          <Image source={require('./image/LogoBaetik.png')} style={{
+            width: 150,
+            height: 150,
+          }}></Image>
+        </View>
+        {/* END PRODUCT PHOTO */}
+
+        {/* TITLE BAR */}
+        <View style={{
+          flex: 4,
+          justifyContent: "center",
+          padding: 20,
+          left: 70
+        }}>
+          <View style={{
+            flex: 1,
+            flexDirection: 'row',
+            marginVertical: 10,
+          }}>
+            <HappyIcon width={30} height={30} marginRight={20}/>
+            <Text style={styles.emojiTitle}>Free Cakes</Text>
+          </View>
+          <View style={{
+            flex: 1,
+            flexDirection: 'row',
+            marginBottom: 10,
+          }}>
+            <MoneyIcon width={30} height={30} marginRight={20}/>
+            <Text style={styles.emojiTitle}>Special Discounts</Text>
+          </View>
+          <View style={{
+            flex: 1,
+            flexDirection: 'row',
+            marginBottom: 10,
+          }}>
+            <EmailIcon width={30} height={30} marginRight={20}/>
+            <Text style={styles.emojiTitle}>New Flavour Updates</Text>
+          </View>
         </View>
         {/* END TITLE BAR */}
 
         {/* DESCRIPTION BAR */}
         <View style={{
-          flex: 4,
+          flex: 5,
           justifyContent: "center",
           alignItems: "center",
           padding: 20,
         }}>
-          <View>
-            <Text>Free Cakes</Text>
-            <Text>Grab your chance to win free bae-tik cakes by joining our monthly giveaway!</Text>
+          {/* FREE CAKES  */}
+          <View style={{
+            paddingHorizontal: 10,
+          }}>
+            <Text style={styles.descriptionTitle}>Free Cakes</Text>
+            <Text style={styles.descriptionText}>Grab your chance to win free bae-tik cakes by joining our monthly giveaway!</Text>
+          </View>
+          {/* SPECIAL DISCOUNTS */}
+          <View style={{
+            paddingHorizontal: 10,
+            paddingTop: 30
+          }}>
+            <Text style={styles.descriptionTitle}>Special Discounts</Text>
+            <Text style={styles.descriptionText}>Get bigger discounts the more you purchase, up to 40% off!</Text>
+          </View>
+          {/* NEW FLAVOUR UPDATES */}
+          <View style={{
+            paddingHorizontal: 10,
+            paddingTop: 30
+          }}>
+            <Text style={styles.descriptionTitle}>New Flavour Updates</Text>
+            <Text style={styles.descriptionText}>With many exclusive flavours waiting to be released, be the early birds to taste them.</Text>
           </View>
         </View>
         {/* END DESCRIPTION BAR */}
+
+        {/* LOGO BAETIK */}
+        <View style={{
+          flex: 6,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 10,
+        }}>
+          <Image source={require('./image/TextBaetik.png')} style={{
+            width: 100,
+            height: 100,
+          }}></Image>
+        </View>
         
       </ScrollView>
     </>
@@ -114,16 +187,28 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
 
+  emojiTitle: {
+    color: "black",
+    fontWeight: "500",
+    fontSize: 20,
+    textAlign: "left",
+  },
+
   descriptionTitle: {
     color: "black",
     fontWeight: "500",
     fontSize: 20,
     textAlign: "center",
-    margin: 5,
+    marginTop: 5,
+    marginBottom: 15,
   },
 
   descriptionText: {
-
+    color: "black",
+    fontWeight: "300",
+    fontSize: 20,
+    textAlign: "center",
+    margin: 0,
   },
 });
 
